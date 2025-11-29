@@ -46,6 +46,7 @@
       "blackmagic",
       "dfu",
       "jlink",
+      "cmsis-dap",
       "serial",
       "stlink"
     ],
