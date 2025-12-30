@@ -1,0 +1,38 @@
+{
+  "build": {
+    "core": "stm32",
+    "cpu": "cortex-m0plus",
+    "extra_flags": "-DSTM32L0 -DSTM32L0xx -DSTM32L051xx",
+    "f_cpu": "32000000L",
+    "mcu": "stm32l051k8u6",
+    "product_line": "STM32L051xx",
+    "variant": "STM32L0xx/L051K(6-8)U"
+  },
+  "debug": {
+    "jlink_device": "STM32L051K8",
+    "openocd_target": "stm32l0",
+    "svd_path": "STM32L051.svd"
+  },
+  "frameworks": [
+    "arduino",
+    "cmsis",
+    "stm32cube",
+    "libopencm3"
+  ],
+  "name": "STM32L051K8 (8K RAM. 64K Flash)",
+  "upload": {
+    "maximum_ram_size": 8192,
+    "maximum_size": 65536,
+    "protocol": "stlink",
+    "protocols": [
+      "blackmagic",
+      "dfu",
+      "jlink",
+      "cmsis-dap",
+      "serial",
+      "stlink"
+    ]
+  },
+  "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32l051k8.html",
+  "vendor": "Generic"
+}
