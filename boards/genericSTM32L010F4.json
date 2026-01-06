@@ -1,0 +1,38 @@
+{
+  "build": {
+    "core": "stm32",
+    "cpu": "cortex-m0plus",
+    "extra_flags": "-DSTM32L0 -DSTM32L0xx -DSTM32L010x4",
+    "f_cpu": "32000000L",
+    "mcu": "stm32l010f4p6",
+    "product_line": "STM32L010x4",
+    "variant": "STM32L0xx/L010F4P_L011F(3-4)P_L021F4P"
+  },
+  "debug": {
+    "jlink_device": "STM32L010F4",
+    "openocd_target": "stm32l0",
+    "svd_path": "STM32L010.svd"
+  },
+  "frameworks": [
+    "arduino",
+    "cmsis",
+    "stm32cube",
+    "libopencm3"
+  ],
+  "name": "STM32L010F4 (2K RAM. 16K Flash)",
+  "upload": {
+    "maximum_ram_size": 2048,
+    "maximum_size": 16384,
+    "protocol": "stlink",
+    "protocols": [
+      "blackmagic",
+      "dfu",
+      "jlink",
+      "cmsis-dap",
+      "serial",
+      "stlink"
+    ]
+  },
+  "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32l010f4.html",
+  "vendor": "Generic"
+}
