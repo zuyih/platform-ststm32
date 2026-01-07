@@ -228,6 +228,12 @@
       "owner": "platformio",
       "version": "~1.4.1"
     },
+    "framework-stm32cubec5": {
+      "type": "framework",
+      "optional": true,
+      "owner": "platformio",
+      "version": "https://github.com/zuyih/STM32CubeC5.git"
+    },
     "framework-stm32cubef0": {
       "type": "framework",
       "optional": true,
@@ -276,6 +282,12 @@
       "owner": "platformio",
       "version": "~1.6.3"
     },
+    "framework-stm32cubeh5": {
+      "type": "framework",
+      "optional": true,
+      "owner": "platformio",
+      "version": "https://github.com/zuyih/STM32CubeH5.git"
+    },
     "framework-stm32cubeh7": {
       "type": "framework",
       "optional": true,
@@ -305,6 +317,30 @@
       "optional": true,
       "owner": "platformio",
       "version": "~1.6.0"
+    },
+    "framework-stm32cuben6": {
+      "type": "framework",
+      "optional": true,
+      "owner": "platformio",
+      "version": "https://github.com/zuyih/STM32CubeN6.git"
+    },
+    "framework-stm32cubeu0": {
+      "type": "framework",
+      "optional": true,
+      "owner": "platformio",
+      "version": "https://github.com/zuyih/STM32CubeU0.git"
+    },
+    "framework-stm32cubeu3": {
+      "type": "framework",
+      "optional": true,
+      "owner": "platformio",
+      "version": "https://github.com/zuyih/STM32CubeU3.git"
+    },
+    "framework-stm32cubeu5": {
+      "type": "framework",
+      "optional": true,
+      "owner": "platformio",
+      "version": "https://github.com/zuyih/STM32CubeU5.git"
     },
     "framework-zephyr": {
       "type": "framework",
