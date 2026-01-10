@@ -1,0 +1,38 @@
+{
+  "build": {
+    "core": "stm32",
+    "cpu": "cortex-m33",
+    "extra_flags": "-DSTM32U3 -DSTM32U3xx -DSTM32U385xx",
+    "f_cpu": "96000000L",
+    "mcu": "stm32u385rgt6q",
+    "product_line": "STM32U385xx",
+    "variant": "STM32U3xx/U375R(E-G)T_U385RGT"
+  },
+  "debug": {
+    "jlink_device": "STM32U385RG",
+    "openocd_target": "stm32u3x",
+    "svd_path": "STM32U385.svd"
+  },
+  "frameworks": [
+    "arduino",
+    "cmsis",
+    "stm32cube",
+    "libopencm3"
+  ],
+  "name": "STM32U385RG (256K RAM. 1M Flash)",
+  "upload": {
+    "maximum_ram_size": 262144,
+    "maximum_size": 1048576,
+    "protocol": "stlink",
+    "protocols": [
+      "blackmagic",
+      "dfu",
+      "jlink",
+      "cmsis-dap",
+      "serial",
+      "stlink"
+    ]
+  },
+  "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32u385rg.html",
+  "vendor": "Generic"
+}
