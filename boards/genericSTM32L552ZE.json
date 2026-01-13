@@ -1,0 +1,48 @@
+{
+  "build": {
+    "core": "stm32",
+    "cpu": "cortex-m33",
+    "extra_flags": "-DSTM32L5 -DSTM32L5xx -DSTM32L552xx",
+    "f_cpu": "80000000L",
+    "mcu": "stm32l552zet6",
+    "product_line": "STM32L552xx",
+    "variant": "STM32L5xx/L552ZET_L562ZET"
+  },
+  "connectivity": [
+    "can"
+  ],
+  "debug": {
+    "default_tools": [
+      "stlink"
+    ],
+    "jlink_device": "STM32L552ZE",
+    "onboard_tools": [
+      "stlink"
+    ],
+    "openocd_target": "stm32l5x",
+    "svd_path": "STM32L552.svd"
+  },
+  "frameworks": [
+    "arduino",
+    "cmsis",
+    "mbed",
+    "stm32cube",
+    "libopencm3",
+    "zephyr"
+  ],
+  "name": "STM32L552ZET6 (192K RAM. 512K Flash)",
+  "upload": {
+    "maximum_ram_size": 196608,
+    "maximum_size": 524288,
+    "protocol": "stlink",
+    "protocols": [
+      "jlink",
+      "cmsis-dap",
+      "stlink",
+      "blackmagic",
+      "mbed"
+    ]
+  },
+  "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32l552ze.html",
+  "vendor": "Generic"
+}
