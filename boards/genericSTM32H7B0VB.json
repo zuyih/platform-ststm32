@@ -1,0 +1,38 @@
+{
+  "build": {
+    "core": "stm32",
+    "cpu": "cortex-m7",
+    "extra_flags": "-DSTM32H7 -DSTM32H7xx -DSTM32H7B0xx",
+    "f_cpu": "280000000L",
+    "mcu": "stm32h7b0vbt6",
+    "product_line": "STM32H7B0xx",
+    "variant": "STM32H7xx/H7A3V(G-I)(H-T)_H7B0VBT_H7B3VI(H-T)"
+  },
+  "debug": {
+    "jlink_device": "STM32H7B0VB",
+    "openocd_target": "stm32h7x",
+    "svd_path": "STM32H7B0.svd"
+  },
+  "frameworks": [
+    "arduino",
+    "cmsis",
+    "stm32cube",
+    "libopencm3"
+  ],
+  "name": "STM32H7B0VBT6 (1376k RAM. 128k Flash)",
+  "upload": {
+    "maximum_ram_size": 1048576,
+    "maximum_size": 131072,
+    "protocol": "serial",
+    "protocols": [
+      "blackmagic",
+      "dfu",
+      "jlink",
+      "cmsis-dap",
+      "serial",
+      "stlink"
+    ]
+  },
+  "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32h7b0vb.html",
+  "vendor": "Generic"
+}
