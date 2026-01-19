@@ -196,7 +196,7 @@
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "~4.21200.0"
+      "version": "https://github.com/zuyih/Arduino_Core_STM32"
     },
     "framework-arduinoststm32-maple": {
       "type": "framework",
@@ -400,7 +400,7 @@
     "tool-ldscripts-ststm32": {
       "optional": true,
       "owner": "platformio",
-      "version": "~0.2.0"
+      "version": "https://github.com/zuyih/tool-ldscripts-ststm32.git"
     }
   }
 }
