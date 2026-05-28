@@ -1,0 +1,38 @@
+{
+  "build": {
+    "core": "stm32",
+    "cpu": "cortex-m33",
+    "extra_flags": "-DSTM32C5 -DSTM32C5xx -DSTM32C562xx",
+    "f_cpu": "144000000L",
+    "mcu": "stm32c562ret6",
+    "product_line": "STM32C562xx",
+    "variant": "STM32C5xx/C552R(C-E)Tx(J)_C562RETx(J)"
+  },
+  "debug": {
+    "jlink_device": "STM32C562RE",
+    "openocd_target": "stm32c5x",
+    "svd_path": "STM32C562.svd"
+  },
+  "frameworks": [
+    "arduino",
+    "cmsis",
+    "stm32cube2",
+    "libopencm3"
+  ],
+  "name": "STM32C562RE (128K RAM. 512K Flash)",
+  "upload": {
+    "maximum_ram_size": 131072,
+    "maximum_size": 524288,
+    "protocol": "stlink",
+    "protocols": [
+      "blackmagic",
+      "dfu",
+      "jlink",
+      "cmsis-dap",
+      "serial",
+      "stlink"
+    ]
+  },
+  "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32c562re.html",
+  "vendor": "Generic"
+}

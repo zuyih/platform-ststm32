@@ -1,0 +1,47 @@
+{
+  "build": {
+    "core": "stm32",
+    "cpu": "cortex-m33",
+    "extra_flags": "-DSTM32C5 -DSTM32C562xx",
+    "f_cpu": "144000000L",
+    "mcu": "stm32c562ret6",
+    "product_line": "STM32C562xx",
+    "variant": "STM32C5xx/C552R(C-E)Tx(J)_C562RETx(J)"
+  },
+  "connectivity": [
+    "can"
+  ],
+  "debug": {
+    "default_tools": [
+      "stlink"
+    ],
+    "jlink_device": "STM32C562RE",
+    "onboard_tools": [
+      "stlink"
+    ],
+    "openocd_board": "st_nucleo_c5",
+    "openocd_target": "stm32c5x",
+    "svd_path": "STM32C562.svd"
+  },
+  "frameworks": [
+    "arduino",
+    "cmsis",
+    "stm32cube2",
+    "zephyr"
+  ],
+  "name": "ST Nucleo C562RE",
+  "upload": {
+    "maximum_ram_size": 131072,
+    "maximum_size": 524288,
+    "protocol": "stlink",
+    "protocols": [
+      "jlink",
+      "cmsis-dap",
+      "stlink",
+      "blackmagic",
+      "mbed"
+    ]
+  },
+  "url": "https://www.st.com/en/evaluation-tools/nucleo-c562re.html",
+  "vendor": "ST"
+}
