@@ -40,6 +40,7 @@ jobs:
           - "examples/stm32cube-hal-usb-device-dfu"
           - "examples/stm32cube-hal-wifi-client"
           - "examples/stm32cube-ll-blink"
+          - "examples/stm32cube2-hal-blink"
           - "examples/zephyr-blink"
           - "examples/zephyr-cpp-synchronization"
           - "examples/zephyr-drivers-can"
