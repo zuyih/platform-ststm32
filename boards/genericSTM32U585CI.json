@@ -1,0 +1,44 @@
+{
+  "build": {
+    "core": "stm32",
+    "cpu": "cortex-m33",
+    "extra_flags": "-DSTM32U5 -DSTM32U5xx -DSTM32U585xx",
+    "f_cpu": "160000000L",
+    "mcu": "stm32u585ciu6",
+    "product_line": "STM32U585xx",
+    "variant": "STM32U5xx/U575C(G-I)(T-U)_U585CI(T-U)"
+  },
+  "connectivity": [
+    "can"
+  ],
+  "debug": {
+    "default_tools": [
+      "stlink"
+    ],
+    "jlink_device": "STM32U585CI",
+    "onboard_tools": [
+      "stlink"
+    ],
+    "openocd_target": "stm32u5x"
+  },
+  "frameworks": [
+    "stm32cube",
+    "arduino",
+    "mbed"
+  ],
+  "name": "STM32U585CIU6 (768K RAM. 2048K Flash)",
+  "upload": {
+    "maximum_ram_size": 786432,
+    "maximum_size": 2097152,
+    "protocol": "stlink",
+    "protocols": [
+      "stlink",
+      "jlink",
+      "cmsis-dap",
+      "blackmagic",
+      "mbed"
+    ]
+  },
+  "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32u585ci.html",
+  "vendor": "Generic"
+}
