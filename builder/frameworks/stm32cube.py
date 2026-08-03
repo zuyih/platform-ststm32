@@ -46,6 +46,16 @@ FRAMEWORK_DIR = platform.get_package_dir("framework-stm32cube%s" % MCU[5:7])
 LDSCRIPTS_DIR = platform.get_package_dir("tool-ldscripts-ststm32")
 assert all(os.path.isdir(d) for d in (FRAMEWORK_DIR, LDSCRIPTS_DIR))
 
+# Starting with STM32CubeC5 the packages published by ST use a different folder
+# layout and a reworked HAL API. They are handled by the `stm32cube2` framework
+if os.path.isdir(os.path.join(FRAMEWORK_DIR, "%sxx_drivers" % MCU_FAMILY)):
+    sys.stderr.write(
+        "Error: `%s` ships the HAL2 API which is not compatible with the "
+        "`stm32cube` framework. Use `framework = stm32cube2` instead.\n"
+        % os.path.basename(FRAMEWORK_DIR)
+    )
+    env.Exit(1)
+
 
 class CustomLibBuilder(PlatformIOLibBuilder):
 
