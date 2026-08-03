@@ -61,6 +61,12 @@
       "homepage": "https://www.st.com/en/ecosystems/stm32cube.html",
       "title": "STM32Cube"
     },
+    "stm32cube2": {
+      "script": "builder/frameworks/stm32cube2.py",
+      "description": "Second generation of the STM32Cube embedded software libraries, introduced with STM32CubeC5. The HAL and LL APIs were reworked and are not source compatible with the classic STM32Cube framework",
+      "homepage": "https://www.st.com/en/ecosystems/stm32cube.html",
+      "title": "STM32Cube HAL2"
+    },
     "zephyr": {
       "package": "framework-zephyr",
       "script": "builder/frameworks/zephyr.py",

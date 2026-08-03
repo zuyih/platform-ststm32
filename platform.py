@@ -63,17 +63,21 @@ class Ststm32Platform(PlatformBase):
             if device_package in self.packages:
                 self.packages[device_package]["optional"] = False
 
-        if "stm32cube" in frameworks:
-            assert build_mcu, ("Missing MCU field for %s" % board)
-            device_package = "framework-stm32cube%s" % build_mcu[5:7]
-            self.frameworks["stm32cube"]["package"] = device_package
+        for cube_framework in ("stm32cube", "stm32cube2"):
+            if cube_framework in frameworks:
+                assert build_mcu, ("Missing MCU field for %s" % board)
+                device_package = "framework-stm32cube%s" % build_mcu[5:7]
+                self.frameworks[cube_framework]["package"] = device_package
 
         if "stm32cube" in frameworks and board_config.get("build.cpu") in (
             "cortex-m23", "cortex-m33", "cortex-m55", "cortex-m85"
         ):
             self.packages["toolchain-gccarmnoneeabi"]["version"] = "~1.140201.0"
 
-        if any(f in frameworks for f in ("cmsis", "stm32cube")):
+        if "stm32cube2" in frameworks:
+            self.packages["toolchain-gccarmnoneeabi"]["version"] = "~1.140201.0"
+
+        if any(f in frameworks for f in ("cmsis", "stm32cube", "stm32cube2")):
             self.packages["tool-ldscripts-ststm32"]["optional"] = False
 
         default_protocol = board_config.get("upload.protocol") or ""
