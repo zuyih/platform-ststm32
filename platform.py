@@ -68,6 +68,11 @@ class Ststm32Platform(PlatformBase):
             device_package = "framework-stm32cube%s" % build_mcu[5:7]
             self.frameworks["stm32cube"]["package"] = device_package
 
+        if "stm32cube" in frameworks and board_config.get("build.cpu") in (
+            "cortex-m23", "cortex-m33", "cortex-m55", "cortex-m85"
+        ):
+            self.packages["toolchain-gccarmnoneeabi"]["version"] = "~1.140201.0"
+
         if any(f in frameworks for f in ("cmsis", "stm32cube")):
             self.packages["tool-ldscripts-ststm32"]["optional"] = False
 
