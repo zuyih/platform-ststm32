@@ -1,0 +1,42 @@
+{
+  "build": {
+    "core": "stm32",
+    "cpu": "cortex-m55",
+    "extra_flags": "-DSTM32N6 -DSTM32N6xx -DSTM32N647xx",
+    "f_cpu": "800000000L",
+    "mcu": "stm32n647x0h3q",
+    "product_line": "STM32N647xx",
+    "stm32cube": {
+      "system_file": "system_stm32n6xx_s.c"
+    }
+  },
+  "connectivity": [
+    "can"
+  ],
+  "debug": {
+    "default_tools": [
+      "stlink"
+    ],
+    "jlink_device": "STM32N647X0",
+    "onboard_tools": [
+      "stlink"
+    ],
+    "openocd_target": "stm32n6x"
+  },
+  "frameworks": [
+    "stm32cube"
+  ],
+  "name": "STM32N647X0 (1536K RAM. 511K code RAM. No internal flash)",
+  "upload": {
+    "maximum_ram_size": 1572864,
+    "maximum_size": 523264,
+    "protocol": "stlink",
+    "protocols": [
+      "stlink",
+      "jlink",
+      "cmsis-dap"
+    ]
+  },
+  "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32n647x0.html",
+  "vendor": "Generic"
+}

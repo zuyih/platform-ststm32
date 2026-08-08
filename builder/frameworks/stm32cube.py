@@ -92,6 +92,16 @@ def get_linker_script(board_mcu, board_cpu):
 
     family_ldscripts_dir = os.path.join(LDSCRIPTS_DIR, board_mcu[0:7])
 
+    # STM32N6 has no internal flash: the image is linked into RAM by an _LRUN
+    # script named after the part number without the package and temperature
+    # range digits
+    if MCU_FAMILY == "stm32n6":
+        lrun_ldscript = os.path.join(
+            family_ldscripts_dir, board_mcu[0:11].upper() + "_LRUN.ld"
+        )
+        if os.path.isfile(lrun_ldscript):
+            return lrun_ldscript
+
     ldscript_matches = _glob_re(
         "^%s.*_FLASH\\.ld$" % board_mcu.upper(),
         os.listdir(family_ldscripts_dir),
