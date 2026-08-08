@@ -1,0 +1,39 @@
+{
+  "build": {
+    "core": "stm32",
+    "cpu": "cortex-m33",
+    "extra_flags": "-DSTM32H5 -DSTM32H5xx -DSTM32H533xx",
+    "f_cpu": "250000000L",
+    "mcu": "stm32h533ret6",
+    "product_line": "STM32H533xx",
+    "variant": "STM32H5xx/H523R(C-E)T_H533RET"
+  },
+  "connectivity": [
+    "can",
+    "ethernet"
+  ],
+  "debug": {
+    "openocd_board": "st_nucleo_h5",
+    "openocd_target": "stm32h5x",
+    "jlink_device": "STM32H533RE",
+    "svd_path": "STM32H533.svd"
+  },
+  "frameworks": [
+    "stm32cube",
+    "arduino",
+    "zephyr"
+  ],
+  "name": "ST Nucleo H533RE",
+  "upload": {
+    "maximum_ram_size": 278528,
+    "maximum_size": 524288,
+    "protocol": "mbed",
+    "protocols": [
+      "stlink",
+      "jlink",
+      "mbed"
+    ]
+  },
+  "url": "https://www.st.com/en/evaluation-tools/nucleo-h533re.html",
+  "vendor": "ST"
+}
