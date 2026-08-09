@@ -1,0 +1,38 @@
+{
+  "build": {
+    "core": "stm32",
+    "cpu": "cortex-m33",
+    "extra_flags": "-DSTM32H5 -DSTM32H5xx -DSTM32H503xx",
+    "f_cpu": "250000000L",
+    "mcu": "stm32h503cbt6",
+    "product_line": "STM32H503xx",
+    "variant": "STM32H5xx/H503CB(T-U)"
+  },
+  "debug": {
+    "jlink_device": "STM32H503CB",
+    "openocd_target": "stm32h5x",
+    "svd_path": "STM32H503.svd"
+  },
+  "frameworks": [
+    "arduino",
+    "cmsis",
+    "stm32cube",
+    "libopencm3"
+  ],
+  "name": "STM32H503CBT6 (32K RAM. 128K Flash)",
+  "upload": {
+    "maximum_ram_size": 32768,
+    "maximum_size": 131072,
+    "protocol": "stlink",
+    "protocols": [
+      "blackmagic",
+      "dfu",
+      "jlink",
+      "cmsis-dap",
+      "serial",
+      "stlink"
+    ]
+  },
+  "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32h503cb.html",
+  "vendor": "Generic"
+}
