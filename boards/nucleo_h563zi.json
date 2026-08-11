@@ -13,10 +13,13 @@
     "ethernet"
   ],
   "debug": {
+    "openocd_board": "st_nucleo_h5",
+    "openocd_target": "stm32h5x",
     "jlink_device": "STM32H563ZI",
     "svd_path": "STM32H563.svd"
   },
   "frameworks": [
+    "stm32cube",
     "arduino",
     "zephyr"
   ],
@@ -26,6 +29,7 @@
     "maximum_size": 2097152,
     "protocol": "mbed",
     "protocols": [
+      "stlink",
       "jlink",
       "mbed"
     ]
