@@ -1,0 +1,38 @@
+{
+  "build": {
+    "core": "stm32",
+    "cpu": "cortex-m33",
+    "extra_flags": "-DSTM32C5 -DSTM32C5xx -DSTM32C552xx",
+    "f_cpu": "144000000L",
+    "mcu": "stm32c552vet6",
+    "product_line": "STM32C552xx",
+    "variant": "STM32C5xx/C552V(C-E)T_C562VET"
+  },
+  "debug": {
+    "jlink_device": "STM32C552VE",
+    "openocd_target": "stm32c5x",
+    "svd_path": "STM32C552.svd"
+  },
+  "frameworks": [
+    "arduino",
+    "cmsis",
+    "stm32cube2",
+    "libopencm3"
+  ],
+  "name": "STM32C552VE (128K RAM. 512K Flash)",
+  "upload": {
+    "maximum_ram_size": 131072,
+    "maximum_size": 524288,
+    "protocol": "stlink",
+    "protocols": [
+      "blackmagic",
+      "dfu",
+      "jlink",
+      "cmsis-dap",
+      "serial",
+      "stlink"
+    ]
+  },
+  "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32c552ve.html",
+  "vendor": "Generic"
+}
