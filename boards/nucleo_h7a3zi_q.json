@@ -1,0 +1,49 @@
+{
+  "build": {
+    "core": "stm32",
+    "cpu": "cortex-m7",
+    "extra_flags": "-DSTM32H7 -DSTM32H7xx -DSTM32H7A3xxQ",
+    "f_cpu": "280000000L",
+    "mcu": "stm32h7a3zit6",
+    "product_line": "STM32H7A3xxQ",
+    "variant": "STM32H7xx/H7A3Z(G-I)TxQ_H7B3ZITxQ"
+  },
+  "connectivity": [
+    "can",
+    "ethernet"
+  ],
+  "debug": {
+    "default_tools": [
+      "stlink"
+    ],
+    "jlink_device": "STM32H7A3ZI",
+    "onboard_tools": [
+      "stlink"
+    ],
+    "openocd_target": "stm32h7x",
+    "svd_path": "STM32H7A3.svd"
+  },
+  "frameworks": [
+    "arduino",
+    "cmsis",
+    "stm32cube",
+    "mbed",
+    "libopencm3",
+    "zephyr"
+  ],
+  "name": "ST Nucleo H7A3ZI Q",
+  "upload": {
+    "maximum_ram_size": 1048576,
+    "maximum_size": 2097152,
+    "protocol": "stlink",
+    "protocols": [
+      "blackmagic",
+      "cmsis-dap",
+      "jlink",
+      "stlink",
+      "mbed"
+    ]
+  },
+  "url": "https://www.st.com/en/evaluation-tools/nucleo-h7a3zi-q.html",
+  "vendor": "ST"
+}
