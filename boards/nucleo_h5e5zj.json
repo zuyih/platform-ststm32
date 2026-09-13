@@ -1,0 +1,37 @@
+{
+  "build": {
+    "core": "stm32",
+    "cpu": "cortex-m33",
+    "extra_flags": "-DSTM32H5 -DSTM32H5xx -DSTM32H5E5xx",
+    "f_cpu": "250000000L",
+    "mcu": "stm32h5e5zjt6",
+    "product_line": "STM32H5E5xx"
+  },
+  "connectivity": [
+    "can",
+    "ethernet"
+  ],
+  "debug": {
+    "openocd_board": "st_nucleo_h5",
+    "openocd_target": "stm32h5x",
+    "jlink_device": "STM32H5E5ZJ",
+    "svd_path": "STM32H5E5.svd"
+  },
+  "frameworks": [
+    "stm32cube",
+    "zephyr"
+  ],
+  "name": "ST Nucleo H5E5ZJ",
+  "upload": {
+    "maximum_ram_size": 1572864,
+    "maximum_size": 4194304,
+    "protocol": "mbed",
+    "protocols": [
+      "stlink",
+      "jlink",
+      "mbed"
+    ]
+  },
+  "url": "https://www.st.com/en/evaluation-tools/nucleo-h5e5zj.html",
+  "vendor": "ST"
+}
