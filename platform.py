@@ -66,7 +66,9 @@ class Ststm32Platform(PlatformBase):
         for cube_framework in ("stm32cube", "stm32cube2"):
             if cube_framework in frameworks:
                 assert build_mcu, ("Missing MCU field for %s" % board)
-                device_package = "framework-stm32cube%s" % build_mcu[5:7]
+                device_package = "framework-stm32cube%s" % (
+                    board_config.get("build.stm32cube.family", "") or build_mcu[0:7]
+                )[5:]
                 self.frameworks[cube_framework]["package"] = device_package
 
         if "stm32cube" in frameworks and board_config.get("build.cpu") in (

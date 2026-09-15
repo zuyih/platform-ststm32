@@ -1,0 +1,36 @@
+{
+  "build": {
+    "core": "stm32",
+    "cpu": "cortex-m7",
+    "extra_flags": "-DSTM32H7RS -DSTM32H7RSxx -DSTM32H7R7xx",
+    "f_cpu": "600000000L",
+    "mcu": "stm32h7r7l8h",
+    "product_line": "STM32H7R7xx",
+    "stm32cube": {
+      "family": "stm32h7rs"
+    }
+  },
+  "debug": {
+    "default_tools": [
+      "stlink"
+    ],
+    "jlink_device": "STM32H7R7L8",
+    "openocd_target": "stm32h7rsx"
+  },
+  "frameworks": [
+    "stm32cube"
+  ],
+  "name": "STM32H7R7L8 (620k RAM. 64k BootFlash)",
+  "upload": {
+    "maximum_ram_size": 466944,
+    "maximum_size": 65536,
+    "protocol": "stlink",
+    "protocols": [
+      "stlink",
+      "jlink",
+      "cmsis-dap"
+    ]
+  },
+  "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32h7r7l8.html",
+  "vendor": "Generic"
+}

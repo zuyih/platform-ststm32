@@ -37,12 +37,14 @@ platform = env.PioPlatform()
 board = env.BoardConfig()
 
 MCU = board.get("build.mcu", "")
-MCU_FAMILY = MCU[0:7]
+# A few Cube packages cover several product lines under a name that cannot be
+# sliced out of the MCU string (e.g. STM32H7R/H7S ship in STM32CubeH7RS)
+MCU_FAMILY = board.get("build.stm32cube.family", "") or MCU[0:7]
 
 PRODUCT_LINE = board.get("build.product_line", "")
 assert PRODUCT_LINE, "Missing MCU or Product Line field"
 
-FRAMEWORK_DIR = platform.get_package_dir("framework-stm32cube%s" % MCU[5:7])
+FRAMEWORK_DIR = platform.get_package_dir("framework-stm32cube%s" % MCU_FAMILY[5:])
 LDSCRIPTS_DIR = platform.get_package_dir("tool-ldscripts-ststm32")
 assert all(os.path.isdir(d) for d in (FRAMEWORK_DIR, LDSCRIPTS_DIR))
 
@@ -90,7 +92,7 @@ def get_linker_script(board_mcu, board_cpu):
     if len(board_mcu) > 12:
         board_mcu = board_mcu[:12] + "X" + board_mcu[13:]
 
-    family_ldscripts_dir = os.path.join(LDSCRIPTS_DIR, board_mcu[0:7])
+    family_ldscripts_dir = os.path.join(LDSCRIPTS_DIR, MCU_FAMILY)
 
     # STM32N6 has no internal flash: the image is linked into RAM by an _LRUN
     # script named after the part number without the package and temperature
@@ -133,7 +135,7 @@ def get_linker_script(board_mcu, board_cpu):
     )
 
     default_ldscript = os.path.join(
-        LDSCRIPTS_DIR, board_mcu[0:7], board_mcu[0:11].upper() + "_DEFAULT.ld"
+        LDSCRIPTS_DIR, MCU_FAMILY, board_mcu[0:11].upper() + "_DEFAULT.ld"
     )
 
     if not os.path.isfile(default_ldscript):
