@@ -41,12 +41,13 @@ platform = env.PioPlatform()
 board = env.BoardConfig()
 
 MCU = board.get("build.mcu", "")
-MCU_FAMILY = MCU[0:7]
+# See the note in `stm32cube.py`
+MCU_FAMILY = board.get("build.stm32cube.family", "") or MCU[0:7]
 
 PRODUCT_LINE = board.get("build.product_line", "")
 assert PRODUCT_LINE, "Missing MCU or Product Line field"
 
-FRAMEWORK_DIR = platform.get_package_dir("framework-stm32cube%s" % MCU[5:7])
+FRAMEWORK_DIR = platform.get_package_dir("framework-stm32cube%s" % MCU_FAMILY[5:])
 LDSCRIPTS_DIR = platform.get_package_dir("tool-ldscripts-ststm32")
 assert all(os.path.isdir(d) for d in (FRAMEWORK_DIR, LDSCRIPTS_DIR))
 

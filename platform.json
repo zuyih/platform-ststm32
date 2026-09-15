@@ -301,6 +301,12 @@
       "owner": "platformio",
       "version": "~1.13.0"
     },
+    "framework-stm32cubeh7rs": {
+      "type": "framework",
+      "optional": true,
+      "owner": "platformio",
+      "version": "https://github.com/zuyih/STM32CubeH7RS.git"
+    },
     "framework-stm32cubel0": {
       "type": "framework",
       "optional": true,
