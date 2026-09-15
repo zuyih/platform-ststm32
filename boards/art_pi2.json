@@ -1,0 +1,40 @@
+{
+  "build": {
+    "core": "stm32",
+    "cpu": "cortex-m7",
+    "extra_flags": "-DSTM32H7RS -DSTM32H7RSxx -DSTM32H7R7xx",
+    "f_cpu": "600000000L",
+    "ldscript": "STM32H7R7L8HX_ROMXSPI2.ld",
+    "mcu": "stm32h7r7l8h",
+    "product_line": "STM32H7R7xx",
+    "stm32cube": {
+      "family": "stm32h7rs"
+    }
+  },
+  "debug": {
+    "default_tools": [
+      "stlink"
+    ],
+    "jlink_device": "STM32H7R7L8",
+    "onboard_tools": [
+      "stlink"
+    ],
+    "openocd_board": "art_pi2",
+    "openocd_target": "stm32h7rsx"
+  },
+  "frameworks": [
+    "stm32cube"
+  ],
+  "name": "RT-Thread ART-Pi2 (8M of 64M XSPI2 Flash, 456k AXISRAM, 32M XSPI1 PSRAM)",
+  "upload": {
+    "maximum_ram_size": 466944,
+    "maximum_size": 8388608,
+    "protocol": "stlink",
+    "protocols": [
+      "stlink",
+      "jlink"
+    ]
+  },
+  "url": "https://github.com/RT-Thread-Studio/sdk-bsp-stm32h7r-realthread-artpi2",
+  "vendor": "RT-Thread"
+}
