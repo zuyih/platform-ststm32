@@ -1,0 +1,36 @@
+{
+  "build": {
+    "core": "stm32",
+    "cpu": "cortex-m55",
+    "extra_flags": "-DSTM32N6 -DSTM32N6xx -DSTM32N647xx",
+    "f_cpu": "800000000L",
+    "mcu": "stm32n647x0h3q",
+    "product_line": "STM32N647xx",
+    "stm32cube": {
+      "boot": "lrun",
+      "system_file": "system_stm32n6xx_s.c"
+    }
+  },
+  "debug": {
+    "default_tools": [
+      "stlink"
+    ],
+    "jlink_device": "STM32N647X0",
+    "openocd_board": "atk_cnn647b"
+  },
+  "frameworks": [
+    "stm32cube"
+  ],
+  "name": "ALIENTEK ATK-CNN647B (32M XSPI2 Flash. 1536K RAM. 511K code RAM)",
+  "upload": {
+    "maximum_ram_size": 1572864,
+    "maximum_size": 523264,
+    "protocol": "stlink",
+    "protocols": [
+      "stlink",
+      "jlink"
+    ]
+  },
+  "url": "https://wiki.alientek.com/docs/Boards/STM32/DNN647/start-guide/stm32n647-board-introduction",
+  "vendor": "ALIENTEK"
+}
