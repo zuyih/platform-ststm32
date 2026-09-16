@@ -84,6 +84,37 @@ def generate_ldscript(default_ldscript_path):
         fp.write(content)
 
 
+def update_sizes_from_ldscript(ldscript_path):
+    def _parse_length(text):
+        scale = 1
+        if text[-1:] in ("K", "k"):
+            scale, text = 1024, text[:-1]
+        elif text[-1:] in ("M", "m"):
+            scale, text = 1024 * 1024, text[:-1]
+        return int(text, 0) * scale
+
+    with open(ldscript_path) as fp:
+        memory = re.search(r"^MEMORY\s*\{(.*?)^\}", fp.read(), re.M | re.S)
+
+    if not memory:
+        return
+
+    options = {"ROM": "upload.maximum_size", "RAM": "upload.maximum_ram_size"}
+    for region, length in re.findall(
+        r"^\s*(\w+)\s*\([^)]*\)\s*:[^\n]*?LENGTH\s*=\s*([^\s,]+)",
+        memory.group(1),
+        re.M,
+    ):
+        if region not in options:
+            continue
+        try:
+            board.update(options[region], _parse_length(length))
+        except ValueError:
+            # The sizes only drive the usage report, so a region spelled in a
+            # way this cannot read is left at whatever the board declared
+            pass
+
+
 def get_linker_script(board_mcu, board_cpu):
     def _glob_re(pattern, ldscripts):
         re_c = re.compile(pattern)
@@ -94,15 +125,31 @@ def get_linker_script(board_mcu, board_cpu):
 
     family_ldscripts_dir = os.path.join(LDSCRIPTS_DIR, MCU_FAMILY)
 
-    # STM32N6 has no internal flash: the image is linked into RAM by an _LRUN
-    # script named after the part number without the package and temperature
-    # range digits
+    # STM32N6 has no internal flash, so ST link its images in three different
+    # ways and the board or the project picks one with `build.stm32cube.boot`.
+    # The scripts are named after the part number without the package and
+    # temperature range digits
     if MCU_FAMILY == "stm32n6":
-        lrun_ldscript = os.path.join(
-            family_ldscripts_dir, board_mcu[0:11].upper() + "_LRUN.ld"
+        boot = board.get("build.stm32cube.boot", "lrun").lower()
+        n6_ldscript = os.path.join(
+            family_ldscripts_dir,
+            "%s_%s.ld" % (board_mcu[0:11].upper(), boot.upper()),
         )
-        if os.path.isfile(lrun_ldscript):
-            return lrun_ldscript
+        if not os.path.isfile(n6_ldscript):
+            sys.stderr.write(
+                "Error: Cannot find a `%s` linker script for `%s` (looked for "
+                "`%s`)!\n" % (boot, MCU, os.path.basename(n6_ldscript))
+            )
+            env.Exit(1)
+
+        # The board sizes describe the default LRUN layout. The other two put
+        # the image somewhere else entirely, so take their budgets from the
+        # script. Note that ROM is where the image runs, which for FSBL is
+        # AXISRAM2 and not the external flash it is stored in
+        if boot != "lrun":
+            update_sizes_from_ldscript(n6_ldscript)
+
+        return n6_ldscript
 
     ldscript_matches = _glob_re(
         "^%s.*_FLASH\\.ld$" % board_mcu.upper(),
